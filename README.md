@@ -45,7 +45,7 @@ projeto_crud/
         ├── clientes_repo.py
         └── produtos_repo.py
 
-
+```
 ---
 
 ## Principais Funcionalidades
