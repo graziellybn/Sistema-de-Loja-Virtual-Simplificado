@@ -9,58 +9,42 @@ Este projeto é um **sistema de loja virtual simplificada**, desenvolvido em **P
 
 O projeto segue uma arquitetura em camadas, organizada da seguinte forma:
 
-* **Modelos (`modelos/`)**: representam as entidades do domínio (Produto, Cliente, Pedido etc.)
+* **Classes (`classes/`)**: representam as entidades do domínio (Produto, Cliente, etc.)
 * **Persistência (`persistencia/`)**: responsável por salvar e carregar dados em arquivos JSON
 * **Serviços (`servicos/`)**: camada de regras de negócio e coordenação entre modelos e persistência
-* **Configurações (`config/`)**: arquivo central de configurações do sistema
+* **Configurações (`settings/`)**: arquivo central de configurações do sistema
 * **CLI (`main.py`)**: interface de interação com o usuário
-
-Essa separação garante um código organizado, reutilizável e fácil de manter.
 
 ---
 
 ## 📁 Estrutura de Pastas
 
 ```
-projeto_loja/
+projeto_crud/
 │
 ├── main.py
+├── settings.py
 ├── requirements.txt
-├── settings.txt
-├── dados/
-│   ├── produtos.json
+│
+├── db/
 │   ├── clientes.json
-│   ├── pedidos.json
-│   └── pagamentos.json
+│   └── produtos.json
 │
 └── src/
-    ├── classes/
-    │   ├── produto.py
-    │   ├── produto_fisico.py
-    │   ├── produto_digital.py
+    ├── __init__.py
+    ├── modelos/
+    │   ├── __init__.py
     │   ├── cliente.py
     │   ├── endereco.py
-    │   ├── carrinho.py
-    │   ├── item_carrinho.py
-    │   ├── pedido.py
-    │   ├── item_pedido.py
-    │   ├── pagamento.py
-    │   └── frete.py
+    │   ├── produto.py
+    │   ├── produto_fisico.py
+    │   └── produto_digital.py
     │
-    ├── persistencia/
-    │   ├── repositorio_produtos.py
-    │   ├── repositorio_clientes.py
-    │   ├── repositorio_pedidos.py
-    │   └── repositorio_pagamentos.py
-    │
-    └── servicos/
-        ├── servico_produtos.py
-        ├── servico_clientes.py
-        ├── servico_carrinho.py
-        ├── servico_pedidos.py
-        ├── servico_pagamentos.py
-        └── servico_frete.py
-```
+    └── persistencia/
+        ├── __init__.py
+        ├── clientes_repo.py
+        └── produtos_repo.py
+
 
 ---
 
@@ -69,10 +53,6 @@ projeto_loja/
 * Cadastro de clientes e múltiplos endereços
 * Cadastro de produtos físicos e digitais
 * Controle de estoque por produto
-* Criação de carrinho de compras
-* Geração de pedidos a partir do carrinho
-* Cálculo de frete para produtos físicos
-* Processamento de pagamento
 * Persistência de dados em arquivos JSON
 
 ---
@@ -82,8 +62,6 @@ projeto_loja/
 * **POO (Programação Orientada a Objetos)**
 * **Herança** (`Produto`, `ProdutoFisico`, `ProdutoDigital`)
 * **Encapsulamento** (uso de `@property` para atributos críticos)
-* **Responsabilidade Única (SRP)**
-* **Separação de Camadas**
 * **Persistência sem banco de dados (JSON)**
 
 ---
